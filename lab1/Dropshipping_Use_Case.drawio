@@ -1,0 +1,115 @@
+<mxfile host="app.diagrams.net" agent="ChatGPT">
+  <diagram name="Use Case Diagram" id="dropshipping-uml-001">
+    <mxGraphModel dx="1471" dy="803" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="system" parent="1" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=2;verticalAlign=top;align=center;spacingTop=12;fontStyle=1;fontSize=16;" value="Dropshipping Inventory &amp; Order Orchestrator" vertex="1">
+          <mxGeometry height="700" width="900" x="250" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="owner" parent="1" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;fontSize=14;" value="E-Store Owner" vertex="1">
+          <mxGeometry height="120" width="70" x="90" y="335" as="geometry" />
+        </mxCell>
+        <mxCell id="supplier" parent="1" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;fontSize=14;" value="Supplier Partner" vertex="1">
+          <mxGeometry height="120" width="70" x="1230" y="335" as="geometry" />
+        </mxCell>
+        <mxCell id="1pGf4TaAbKfoEkqp_NET-2" edge="1" parent="1" source="receive" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="inventory" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="receive" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=13;" value="Receive Order Webhook" vertex="1">
+          <mxGeometry height="65" width="250" x="325" y="130" as="geometry" />
+        </mxCell>
+        <mxCell id="validate" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=13;" value="Validate Order" vertex="1">
+          <mxGeometry height="65" width="220" x="825" y="130" as="geometry" />
+        </mxCell>
+        <mxCell id="inventory" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=13;" value="Verify Supplier Inventory" vertex="1">
+          <mxGeometry height="65" width="250" x="325" y="285" as="geometry" />
+        </mxCell>
+        <mxCell id="split" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=13;" value="Split Multi-Vendor Order" vertex="1">
+          <mxGeometry height="65" width="220" x="825" y="285" as="geometry" />
+        </mxCell>
+        <mxCell id="po" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=13;" value="Create Supplier Purchase Order" vertex="1">
+          <mxGeometry height="65" width="250" x="325" y="440" as="geometry" />
+        </mxCell>
+        <mxCell id="tracking" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=13;" value="Track Shipment &amp; Update Status" vertex="1">
+          <mxGeometry height="65" width="220" x="825" y="440" as="geometry" />
+        </mxCell>
+        <mxCell id="oos" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=13;fillColor=#fff2cc;" value="Handle Out-of-Stock Item" vertex="1">
+          <mxGeometry height="65" width="250" x="575" y="585" as="geometry" />
+        </mxCell>
+        <mxCell id="ownerReceive" edge="1" parent="1" source="owner" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=none;" target="receive">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ownerInventory" edge="1" parent="1" source="owner" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=none;" target="inventory">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ownerTracking" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=none;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="500" y="395" />
+              <mxPoint x="500" y="420" />
+              <mxPoint x="885" y="420" />
+            </Array>
+            <mxPoint x="109.99999999999977" y="395" as="sourcePoint" />
+            <mxPoint x="885" y="440" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="supplierInventory" edge="1" parent="1" source="supplier" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=none;" target="inventory">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="820" y="395" />
+              <mxPoint x="820" y="317.43" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="supplierPO" edge="1" parent="1" source="supplier" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=none;" target="po">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="supplierTracking" edge="1" parent="1" source="supplier" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=none;" target="tracking">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="include1" edge="1" parent="1" source="receive" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;dashed=1;endArrow=open;endFill=0;fontStyle=2;fontSize=12;" target="validate" value="&lt;&lt;include&gt;&gt;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="include2" edge="1" parent="1" source="po" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;dashed=1;endArrow=open;endFill=0;fontStyle=2;fontSize=12;" target="inventory" value="&lt;&lt;include&gt;&gt;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="include3" edge="1" parent="1" source="split" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;dashed=1;endArrow=open;endFill=0;fontStyle=2;fontSize=12;" target="po" value="&lt;&lt;include&gt;&gt;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="extend1" edge="1" parent="1" source="oos" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;dashed=1;endArrow=open;endFill=0;fontStyle=2;fontSize=12;" target="inventory" value="&lt;&lt;extend&gt;&gt;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="730" y="340" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="flow1" edge="1" parent="1" source="validate" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=none;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="450" y="162.43" />
+            </Array>
+            <mxPoint x="450" y="260" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="flow2" edge="1" parent="1" source="inventory" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=none;" target="split" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="flow3" edge="1" parent="1" source="po" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=none;" target="tracking" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="450" y="540" />
+              <mxPoint x="935" y="540" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="legend" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontStyle=1;fontSize=13;" value="Legend" vertex="1">
+          <mxGeometry height="35" width="170" x="285" y="785" as="geometry" />
+        </mxCell>
+        <mxCell id="legendText" parent="1" style="whiteSpace=wrap;html=1;fontSize=11;align=left;verticalAlign=middle;" value="—  Association&#xa;- - - &gt;  &lt;&lt;include&gt;&gt;&#xa;- - - &gt;  &lt;&lt;extend&gt;&gt;" vertex="1">
+          <mxGeometry height="60" width="300" x="465" y="775" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
